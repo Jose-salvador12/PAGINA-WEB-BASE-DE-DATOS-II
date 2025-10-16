@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Login - Repositorio Académico</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+  <div class="form-container">
+    <h2>Iniciar Sesión</h2>
+
+    <form id="loginForm">
+      <input type="text" id="usuario" placeholder="Usuario o correo" required>
+      <input type="password" id="password" placeholder="Contraseña" required>
+      <button type="submit">Ingresar</button>
+    </form>
+
+    <p id="mensaje-error" class="error"></p>
+    <p class="footer">Repositorio Académico © 2025</p>
+  </div>
+
+  <script>
+    const usuarios = [
+      { nombre: "admin", password: "1234", rol: "admin" },
+      { nombre: "usuario", password: "0000", rol: "usuario" }
+    ];
+
+    document.getElementById("loginForm").addEventListener("submit", e => {
+      e.preventDefault();
+      const user = document.getElementById("usuario").value.trim();
+      const pass = document.getElementById("password").value.trim();
+      const mensaje = document.getElementById("mensaje-error");
+
+      const encontrado = usuarios.find(u => u.nombre === user && u.password === pass);
+      if (encontrado) {
+        localStorage.setItem("rol", encontrado.rol);
+        window.location.href = "index.html";
+      } else {
+        mensaje.textContent = "Usuario o contraseña incorrectos";
+      }
+    });
+  </script>
+</body>
+</html>
