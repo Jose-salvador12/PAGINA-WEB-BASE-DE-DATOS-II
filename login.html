@@ -1,4 +1,4 @@
-<!--<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -11,33 +11,43 @@
     <h2>Iniciar Sesión</h2>
 
     <form id="loginForm">
-      <input type="text" id="usuario" placeholder="Usuario o correo" required>
+      <input type="text" id="usuario" placeholder="Usuario" required>
       <input type="password" id="password" placeholder="Contraseña" required>
       <button type="submit">Ingresar</button>
     </form>
 
     <p id="mensaje-error" class="error"></p>
-    <p class="footer">Repositorio Académico © 2025</p>
+    <p class="footer">Repositorio Académico © 2026</p>
   </div>
 
   <script>
+    // Usuarios simulados
     const usuarios = [
       { nombre: "admin", password: "1234", rol: "admin" },
       { nombre: "usuario", password: "0000", rol: "usuario" }
     ];
 
-    document.getElementById("loginForm").addEventListener("submit", e => {
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
       e.preventDefault();
+
       const user = document.getElementById("usuario").value.trim();
       const pass = document.getElementById("password").value.trim();
       const mensaje = document.getElementById("mensaje-error");
 
-      const encontrado = usuarios.find(u => u.nombre === user && u.password === pass);
+      // Buscar usuario
+      const encontrado = usuarios.find(u => 
+        u.nombre === user && u.password === pass
+      );
+
       if (encontrado) {
+        // Guardar rol
         localStorage.setItem("rol", encontrado.rol);
+        localStorage.setItem("usuario", encontrado.nombre);
+
+        // Redirigir
         window.location.href = "index.html";
       } else {
-        mensaje.textContent = "Usuario o contraseña incorrectos";
+        mensaje.textContent = "❌ Usuario o contraseña incorrectos";
       }
     });
   </script>
