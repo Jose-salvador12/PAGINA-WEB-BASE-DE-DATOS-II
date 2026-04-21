@@ -2,34 +2,36 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-</div>
-
+  <title>Repositorio Académico</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-  <!-- ===== ENCABEZADO ===== -->
+<!-- 🔐 BOTÓN LOGOUT -->
+<button onclick="logout()" style="position:fixed; top:10px; right:10px;">
+  Cerrar sesión
+</button>
 
-  <header>
-    <div class="logo">
-      <img src="img/logo.png" alt="Logo del Repositorio">
-    </div>
+<!-- ===== ENCABEZADO ===== -->
+<header>
+  <div class="logo">
+    <img src="img/logo.png" alt="Logo">
+  </div>
 
-    <!-- Menú -->
-    <nav>
-      <ul>
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#repositorio">Repositorio</a></li>
-        <li><a href="login.html">Iniciar Sesión</a></li>
-      </ul>
-    </nav>
-  </header>
+  <nav>
+    <ul>
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#repositorio">Repositorio</a></li>
+      <li><a href="login.html">Iniciar Sesión</a></li>
+    </ul>
+  </nav>
+</header>
 
-  <!-- ===== CONTENIDO PRINCIPAL ===== -->
-  <main id="inicio">
+<!-- ===== CONTENIDO ===== -->
+<main id="inicio">
 
-    <!-- ===== DESCRIPCIÓN PERSONAL ===== -->
+  <!-- SOBRE MI -->
     <section id="sobre-mi" class="sobre-mi">
       <h2>Sobre mí</h2>
       <p>
@@ -49,197 +51,115 @@
         gestión eficiente de la información.
       </p>
     </section>
-    <!-- ===== SECCIÓN DE SEMANAS ===== -->
-    <section id="repositorio">
-      <h2>Trabajos por Semanas</h2>
 
-      <div class="grid-semanas">
-        <!-- Semana 1 -->
-        <div class="semana-card">
-          <img src="img/semana1.jpg" alt="Semana 1">
-          <h3>Semana 1 <h2>Introducción a la Arquitectura de Base de Datos</h2></h3>
-         
- <a 
-  href="https://github.com/Jose-salvador12/BASE-DE-DATOS-II/blob/2a1cd003b0bcccfa63975d3b3466b0fe5f92495a/Semana1/Manual%20para%20publicar%20pagina%20web%20GitHub.pdf"
-  target="_blank">
-  <button>Actividades </button>
-</a>
-</div>
+  <!-- REPOSITORIO -->
+  <section id="repositorio">
+    <h2>Trabajos por Semanas</h2>
 
-        <!-- Semana 2 -->
-        <div class="semana-card">
-          <img src="img/semana2.jpg" alt="Semana 2">
-        
-                    
-          <h3>Semana 2 <h2>Gestores de Base de Datos</h2></h3>
-  <a 
-  href="https://github.com/Jose-salvador12/BASE-DE-DATOS-II/blob/2a1cd003b0bcccfa63975d3b3466b0fe5f92495a/Semana%202/Modelo%20Logico.pdf"
-  target="_blank">
-  <button>Actividades</button>
-</a>
-</div>
+    <div class="grid-semanas">
 
-        <!-- Semana 3 -->
-        <div class="semana-card">
-          <img src="img/semana3.png" alt="Semana 3">
-          <h3>Semana 3<h2> Arquitectura de Base de Datos </h2></h3>
- <a 
-  href="https://github.com/Jose-salvador12/BASE-DE-DATOS-II/blob/2a1cd003b0bcccfa63975d3b3466b0fe5f92495a/Semana%203/Informe%20Tecnico%20Comparativo%20SQL.pdf"
-  target="_blank">
-  <button>Actividades </button>
-</a>
-</div>
-
-        <!-- Semana 4 -->
-        <div class="semana-card">
-          <img src="img/semana4.jpeg" alt="Semana 4">
-          <h3>Semana 4 <h2>Diseño de la Arquitectura de Base de Datos</h2></h3>
-<a 
-  href="https://github.com/Jose-salvador12/BASE-DE-DATOS-II/blob/997c619a9cf685ca26a700fca47f208f67a2d0a3/Semana%204/ARQUITECTURAS%20DE%20BASES%20DE%20DATOS%20Y%20SU%20APLICABILIDAD%20TECNOL%C3%93GICA.pdf"
-  target="_blank">
-  <button>Actividades </button>
-</a>
-</div>
-
-        <!-- Semana 5 -->
-        <div class="semana-card">
-          <img src="img/semana5.jpeg" alt="Semana 5">
-          <h3>Semana 5</h3>
-<a 
-  href="https://github.com/Jose-salvador12/BASE-DE-DATOS-II/blob/c166c11cdee5b53d3a4c0339f19869712ace65c9/Semana%205/CREAR%20BASE%20DE%20DATOS%20EN%20AZURE.pdf"
-  target="_blank">
-  <button>Actividades </button>
-</a>
-</div>
-
-        <!-- Semana 6 -->
-        <div class="semana-card">
-          <img src="img/semana6.jpg" alt="Semana 6">
-          <h3>Semana 6</h3>
-<a 
-  href="https://github.com/Jose-salvador12/BASE-DE-DATOS-II/blob/2a1cd003b0bcccfa63975d3b3466b0fe5f92495a/Semana%206/ACTIVIDAD%20SEMANA%2006.pdf"
-  target="_blank">
-  <button>Actividades </button>
-</a>
-</div>
-
-        <!-- Semana 7 -->
-        <div class="semana-card">
-          <img src="img/semana7.jpeg" alt="Semana 7">
-          <h3>Semana 7</h3>
-<a 
-  href="https://github.com/Jose-salvador12/BASE-DE-DATOS-II/tree/50f9986d1c9f9bf13e41e3e3ea92e4a7d5577981/Semana%207"
-  target="_blank">
-  <button>Actividades </button>
-</a>
-</div>
-
-        <!-- Semana 8 -->
-        <div class="semana-card">
-          <img src="img/semana8.webp" alt="Semana 8">
-          <h3>Semana 8</h3>
-<a 
-  href="https://github.com/Jose-salvador12/BASE-DE-DATOS-II/tree/50f9986d1c9f9bf13e41e3e3ea92e4a7d5577981/Semana%208"
-  target="_blank">
-  <button>Actividades </button>
-</a>
-</div>
-
-        <!-- Semana 9 -->
-        <div class="semana-card">
-          <img src="img/semana9.png" alt="Semana 9">
-          <h3>Semana 9</h3>
-<a 
-  href="https://github.com/Jose-salvador12/BASE-DE-DATOS-II/tree/50f9986d1c9f9bf13e41e3e3ea92e4a7d5577981/Semana%209"
-  target="_blank">
-  <button>Actividades</button>
-</a>
-</div>
-
-        <!-- Semana 10 -->
-        <div class="semana-card">
-          <img src="img/semana10.webp" alt="Semana 10">
-          <h3>Semana 10</h3>
-<a 
-  href="hhttps://github.com/Jose-salvador12/BASE-DE-DATOS-II/tree/50f9986d1c9f9bf13e41e3e3ea92e4a7d5577981/Semana%2010"
-  target="_blank">
-  <button>Actividades</button>
-</a>
-</div>
-
-        <!-- Semana 11 -->
-        <div class="semana-card">
-          <img src="img/semana11.jpg" alt="Semana 11">
-          <h3>Semana 11</h3>
-<a 
-  href="https://github.com/Jose-salvador12/BASE-DE-DATOS-II/tree/50f9986d1c9f9bf13e41e3e3ea92e4a7d5577981/Semana%2011"
-  target="_blank">
-  <button>Actividades </button>
-</a>
-</div>
-
-        <!-- Semana 12 -->
-        <div class="semana-card">
-          <img src="img/semana12.jpeg" alt="Semana 12">
-          <h3>Semana 12</h3>
-<a 
-  href="https://github.com/Jose-salvador12/BASE-DE-DATOS-II/tree/50f9986d1c9f9bf13e41e3e3ea92e4a7d5577981/Semana%2012"
-  target="_blank">
-  <button>TActividades</button>
-</a>
-</div>
-
-        <!-- Semana 13 -->
-        <div class="semana-card">
-          <img src="img/semana13.jpg" alt="Semana 13">
-          <h3>Semana 13</h3>
-<a 
-  href="https://github.com/Jose-salvador12/BASE-DE-DATOS-II/tree/50f9986d1c9f9bf13e41e3e3ea92e4a7d5577981/Semana%2013"
-  target="_blank">
-  <button>Actividades </button>
-</a>
-</div>
-
-        <!-- Semana 14 -->
-        <div class="semana-card">
-          <img src="img/semana14.png" alt="Semana 14">
-          <h3>Semana 14</h3>
-<a 
-  href="https://github.com/Jose-salvador12/BASE-DE-DATOS-II/tree/50f9986d1c9f9bf13e41e3e3ea92e4a7d5577981/Semana%2014"
-  target="_blank">
-  <button>Actividades </button>
-</a>
-</div>
-
-        <!-- Semana 15 -->
-        <div class="semana-card">
-          <img src="img/semana15.jpg" alt="Semana 15">
-          <h3>Semana 15</h3>
-<a 
-  href="https://github.com/Jose-salvador12/BASE-DE-DATOS-II/tree/50f9986d1c9f9bf13e41e3e3ea92e4a7d5577981/Semana%2015"
-  target="_blank">
-  <button>Actividades</button>
-</a>
-</div>
-
-        <!-- Semana 16 -->
-        <div class="semana-card">
-          <img src="img/semana16.jpg" alt="Semana 16">
-          <h3>Semana 16</h3>
-<a 
-  href="https://github.com/Jose-salvador12/BASE-DE-DATOS-II/tree/50f9986d1c9f9bf13e41e3e3ea92e4a7d5577981/Semana%2016"
-  target="_blank">
-  <button>Actividades</button>
-          <div class="acciones-admin"></div>
-        </div>
-</a>
-</div>
-
+      <!-- SEMANA TEMPLATE -->
+      <!-- COPIA ESTE BLOQUE PARA TODAS -->
+      
+      <div class="semana-card">
+        <img src="img/semana1.jpg">
+        <h3>Semana 1</h3>
+        <a href="#" target="_blank">
+          <button>Actividades</button>
+        </a>
+        <div class="acciones-admin"></div>
       </div>
-    </section>
-  </main>
 
-  <!-- ==== SCRIPT ==== -->
-  <script src="script.js"></script>
+      <div class="semana-card">
+        <img src="img/semana2.jpg">
+        <h3>Semana 2</h3>
+        <a href="#" target="_blank">
+          <button>Actividades</button>
+        </a>
+        <div class="acciones-admin"></div>
+      </div>
+
+      <div class="semana-card">
+        <img src="img/semana3.png">
+        <h3>Semana 3</h3>
+        <a href="#" target="_blank">
+          <button>Actividades</button>
+        </a>
+        <div class="acciones-admin"></div>
+      </div>
+
+      <div class="semana-card">
+        <img src="img/semana4.jpeg">
+        <h3>Semana 4</h3>
+        <a href="#" target="_blank">
+          <button>Actividades</button>
+        </a>
+        <div class="acciones-admin"></div>
+      </div>
+
+      <div class="semana-card">
+        <img src="img/semana5.jpeg">
+        <h3>Semana 5</h3>
+        <a href="#" target="_blank">
+          <button>Actividades</button>
+        </a>
+        <div class="acciones-admin"></div>
+      </div>
+
+      <div class="semana-card">
+        <img src="img/semana6.jpg">
+        <h3>Semana 6</h3>
+        <a href="#" target="_blank">
+          <button>Actividades</button>
+        </a>
+        <div class="acciones-admin"></div>
+      </div>
+
+      <div class="semana-card">
+        <img src="img/semana7.jpeg">
+        <h3>Semana 7</h3>
+        <a href="#" target="_blank">
+          <button>Actividades</button>
+        </a>
+        <div class="acciones-admin"></div>
+      </div>
+
+      <div class="semana-card">
+        <img src="img/semana8.webp">
+        <h3>Semana 8</h3>
+        <a href="#" target="_blank">
+          <button>Actividades</button>
+        </a>
+        <div class="acciones-admin"></div>
+      </div>
+
+      <div class="semana-card">
+        <img src="img/semana9.png">
+        <h3>Semana 9</h3>
+        <a href="#" target="_blank">
+          <button>Actividades</button>
+        </a>
+        <div class="acciones-admin"></div>
+      </div>
+
+      <div class="semana-card">
+        <img src="img/semana10.webp">
+        <h3>Semana 10</h3>
+        <a href="#" target="_blank">
+          <button>Actividades</button>
+        </a>
+        <div class="acciones-admin"></div>
+      </div>
+
+      <!-- AGREGA MÁS SEMANAS IGUAL -->
+
+    </div>
+  </section>
+
+</main>
+
+<!-- SCRIPT -->
+<script src="script.js"></script>
+
 </body>
 </html>
