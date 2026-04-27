@@ -1,15 +1,15 @@
 // ===== USUARIOS =====
 const usuarios = [
   { nombre: "admin", password: "1234", rol: "admin" },
-  { nombre: "usuario", password: "0000", rol: "usuario" }
+  { nombre: "jose", password: "0000", rol: "usuario" }
 ];
 
-// ===== LOGIN =====
+// ===== INICIO =====
 document.addEventListener("DOMContentLoaded", () => {
 
   const form = document.getElementById("loginForm");
 
-  // Si estamos en login.html
+  // ===== LOGIN (NO TOCADO) =====
   if (form) {
     form.addEventListener("submit", function(e) {
       e.preventDefault();
@@ -29,38 +29,96 @@ document.addEventListener("DOMContentLoaded", () => {
         mensaje.textContent = "❌ Usuario o contraseña incorrectos";
       }
     });
+
+    return;
   }
 
-  // ===== CONTROL EN INDEX =====
+  // ===== INDEX =====
   const rol = localStorage.getItem("rol");
 
-  if (window.location.pathname.includes("index.html")) {
-    if (!rol) {
-      window.location.href = "login.html";
-    }
+  if (!rol) {
+    window.location.href = "login.html";
+  }
 
-    if (rol === "admin") {
-      document.querySelectorAll(".acciones-admin").forEach(div => {
-        div.innerHTML = `
-          <button onclick="eliminar(this)">Eliminar</button>
-          <input type="file" onchange="subirArchivo(this)">
-        `;
-      });
-    }
+  mostrarArchivos();
+
+  if (rol !== "admin") {
+    document.querySelectorAll(".acciones-admin").forEach(div => {
+      div.style.display = "none";
+    });
   }
 });
 
-// ===== FUNCIONES =====
-function eliminar(btn) {
-  const card = btn.closest(".semana-card");
-  card.remove();
+
+// ===== SUBIR ARCHIVO (CORREGIDO) =====
+function subirArchivo(event, semana) {
+  const archivo = event.target.files[0];
+  if (!archivo) return;
+
+  const reader = new FileReader();
+
+  reader.onload = function(e) {
+    const nuevo = {
+      nombre: archivo.name,
+      url: e.target.result   // ✅ base64 correcto
+    };
+
+    let datos = JSON.parse(localStorage.getItem("archivos")) || {};
+
+    if (!datos[semana]) {
+      datos[semana] = [];
+    }
+
+    datos[semana].push(nuevo);
+
+    localStorage.setItem("archivos", JSON.stringify(datos));
+
+    mostrarArchivos();
+  };
+
+  reader.readAsDataURL(archivo);
 }
 
-function subirArchivo(input) {
-  alert("Archivo subido (simulado)");
+
+// ===== MOSTRAR =====
+function mostrarArchivos() {
+  const datos = JSON.parse(localStorage.getItem("archivos")) || {};
+
+  Object.keys(datos).forEach(semana => {
+    const contenedor = document.getElementById(`lista-${semana}`);
+    if (!contenedor) return;
+
+    contenedor.innerHTML = "";
+
+    datos[semana].forEach((archivo, index) => {
+      contenedor.innerHTML += `
+        <div>
+      <a href="${archivo.url}" target="_blank" download="${archivo.nombre}">
+  📄 ${archivo.nombre}
+</a>
+
+          ${localStorage.getItem("rol") === "admin"
+            ? `<button onclick="eliminar('${semana}', ${index})">❌</button>`
+            : ""}
+        </div>
+      `;
+    });
+  });
 }
 
+
+// ===== ELIMINAR =====
+function eliminar(semana, index) {
+  let datos = JSON.parse(localStorage.getItem("archivos")) || {};
+  datos[semana].splice(index, 1);
+  localStorage.setItem("archivos", JSON.stringify(datos));
+  mostrarArchivos();
+}
+
+
+// ===== LOGOUT =====
 function logout() {
-  localStorage.clear();
+  localStorage.removeItem("rol");
+  localStorage.removeItem("usuario");
   window.location.href = "login.html";
 }
