@@ -3,14 +3,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
 }
 
 /* ===== BODY ===== */
 body {
-  background: #0f172a;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #020617, #0f172a);
   color: #e2e8f0;
-  line-height: 1.6;
 }
 
 /* ===== HEADER ===== */
@@ -18,68 +17,54 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 40px;
+  padding: 15px 30px;
   background: #020617;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.5);
 }
 
 .logo img {
-  width: 60px;
+  width: 50px;
 }
 
-/* ===== NAV ===== */
 nav ul {
   display: flex;
   list-style: none;
-  gap: 25px;
+  gap: 20px;
 }
 
 nav a {
   text-decoration: none;
-  color: #94a3b8;
-  font-weight: 500;
-  transition: 0.3s;
+  color: #cbd5f5;
 }
 
 nav a:hover {
   color: #38bdf8;
 }
 
-/* ===== SECCIÓN SOBRE MI ===== */
+/* ===== TITULOS ===== */
+h2 {
+  text-align: center;
+  margin: 40px 0;
+  color: #38bdf8;
+}
+
+/* ===== SOBRE MI ===== */
 .sobre-mi {
-  padding: 60px 40px;
-  max-width: 900px;
+  max-width: 800px;
   margin: auto;
+  padding: 20px;
   text-align: center;
+  line-height: 1.6;
 }
 
-.sobre-mi h2 {
-  font-size: 2.2rem;
-  margin-bottom: 20px;
-  color: #38bdf8;
-}
-
-.sobre-mi p {
-  margin-bottom: 15px;
-  color: #cbd5f5;
-}
-
-/* ===== REPOSITORIO ===== */
-#repositorio {
-  padding: 50px 30px;
-}
-
-#repositorio h2 {
-  text-align: center;
-  margin-bottom: 40px;
-  color: #38bdf8;
-}
-
-/* ===== GRID ===== */
+/* ===== GRID (CLAVE) ===== */
 .grid-semanas {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 280px));
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
 }
 
 /* ===== TARJETAS ===== */
@@ -87,54 +72,94 @@ nav a:hover {
   background: #020617;
   border-radius: 15px;
   overflow: hidden;
-  text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
   transition: 0.3s;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+  width: 100%;
+  max-width: 280px;
 }
 
 .semana-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+  transform: translateY(-5px);
 }
 
+/* ===== IMAGEN ===== */
 .semana-card img {
   width: 100%;
-  height: 160px;
+  height: 140px;
   object-fit: cover;
 }
 
+/* ===== TEXTO ===== */
 .semana-card h3 {
-  margin: 15px 0;
-  color: #e2e8f0;
+  text-align: center;
+  margin: 10px 0 5px;
 }
 
-/* ===== BOTONES ===== */
+.semana-card p {
+  text-align: center;
+  font-size: 13px;
+  color: #94a3b8;
+  padding: 0 10px;
+}
+
+/* ===== ARCHIVOS ===== */
+.archivo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px;
+  padding: 8px;
+  background: #0f172a;
+  border-radius: 10px;
+  font-size: 13px;
+}
+
+/* ===== BOTONES ARCHIVO ===== */
+.archivo-item button {
+  margin-left: 5px;
+  padding: 5px 8px;
+  font-size: 12px;
+}
+
+/* ===== BOTONES GENERALES ===== */
 button {
-  margin-bottom: 15px;
-  padding: 10px 20px;
   border: none;
-  background: linear-gradient(135deg, #38bdf8, #6366f1);
+  border-radius: 10px;
+  background: #38bdf8;
   color: white;
-  border-radius: 25px;
   cursor: pointer;
-  font-weight: bold;
   transition: 0.3s;
 }
 
 button:hover {
-  transform: scale(1.05);
-  background: linear-gradient(135deg, #0ea5e9, #4f46e5);
+  background: #0ea5e9;
+}
+
+/* ===== INPUT ADMIN ===== */
+.acciones-admin {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+input[type="file"] {
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+/* ===== LOGOUT ===== */
+button[onclick="logout()"] {
+  background: #ef4444;
+  border-radius: 10px;
+  padding: 8px 12px;
+}
+
+button[onclick="logout()"]:hover {
+  background: #dc2626;
 }
 
 /* ===== RESPONSIVE ===== */
-@media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  nav ul {
-    flex-direction: column;
-    align-items: center;
+@media (max-width: 600px) {
+  .grid-semanas {
+    grid-template-columns: 1fr;
   }
 }
