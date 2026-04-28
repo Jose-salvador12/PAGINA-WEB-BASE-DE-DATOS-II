@@ -28,9 +28,9 @@
   </nav>
 </header>
 
-
 <!-- ===== CONTENIDO ===== -->
 <main id="inicio">
+
 
   <!-- SOBRE MI -->
     <section id="sobre-mi" class="sobre-mi">
@@ -59,37 +59,105 @@
 
     <div class="grid-semanas">
 
-      <!-- SEMANA 1 -->
+     <!-- SEMANA 1 -->
       <div class="semana-card">
         <img src="img/semana1.jpg">
-        <h3>Semana 1
-        <p>Introducción a la Arquitectura de Base de Datos</p></h3>
+        <h3>Semana 1</h3>
+        <p>Introducción a la Arquitectura de Base de Datos</p>
 
-        <!-- ARCHIVOS -->
+        <!-- ARCHIVO FIJO -->
+      <div class="archivo-item">
+  <span>📄 Resumen_Semana1.pdf</span>
+  <div>
+    <a href="docs/Resumen_Semana1.pdf" target="_blank">
+      <button>👁</button>
+    </a>
+    <a href="docs/Resumen_Semana1.pdf" download>
+      <button>⬇</button>
+    </a>
+    
+  </div>
+</div>
+
+<div class="archivo-item">
+  <span>📄 Repositorio_investi  .pdf</span>
+  <div>
+    <a href="docs/Repositorios_investigacion.pdf" target="_blank">
+      <button>👁</button>
+    </a>
+    <a href="docs/Repositorios_investigacion.pdf" download>
+      <button>⬇</button>
+    </a>
+  
+  </div>
+</div>
+
         <div id="lista-Semana 1"></div>
 
-        <!-- ADMIN -->
         <div class="acciones-admin">
           <input type="file" onchange="subirArchivo(event, 'Semana 1')">
         </div>
       </div>
 
       <!-- SEMANA 2 -->
-      <div class="semana-card">
-        <img src="img/semana2.jpg">
-        <h3>Semana 2 <p>Gestores de Base de Datos</p></h3>
+     <div class="semana-card">
+  <img src="img/semana2.jpg">
+  <h3>Semana 2</h3>
+  <p>Gestores de Base de Datos</p>
 
-        <div id="lista-Semana 2"></div>
+  <!-- DOCUMENTO 1 -->
+  <div class="archivo-item">
+    <span>📄 Manual SQL.pdf</span>
+    <div>
+      <a href="docs/Manual_SQL.pdf" target="_blank">
+        <button>👁</button>
+      </a>
+      <a href="docs/Manual_SQL.pdf" download>
+        <button>⬇</button>
+      </a>
+    
+    </div>
+  </div>
 
-        <div class="acciones-admin">
-          <input type="file" onchange="subirArchivo(event, 'Semana 2')">
-        </div>
-      </div>
+  <!-- DOCUMENTO 2 -->
+  <div class="archivo-item">
+    <span>📄 Ejercicios.pdf</span>
+    <div>
+      <a href="docs/Ejercicios.pdf" target="_blank">
+        <button>👁</button>
+      </a>
+      <a href="docs/Ejercicios.pdf" download>
+        <button>⬇</button>
+      </a>
+      
+    </div>
+  </div>
+  <div class="archivo-item">
+    <span>📄 Resumen Semana2.pdf</span>
+    <div>
+      <a href="docs/Resumen_Semana2.pdfr" target="_blank">
+        <button>👁</button>
+      </a>
+      <a href="docs/Resumen_Semana2.pdf" download>
+        <button>⬇</button>
+      </a>
+      
+    </div>
+  </div>
+  <!-- DINÁMICOS -->
+  <div id="lista-Semana 2"></div>
+
+  <!-- ADMIN -->
+  <div class="acciones-admin">
+    <input type="file" onchange="subirArchivo(event, 'Semana 2')">
+  </div>
+</div
 
       <!-- SEMANA 3 -->
       <div class="semana-card">
         <img src="img/semana3.png">
-        <h3>Semana 3 <p>Arquitectura de Base de Datos</p></h3>
+        <h3>Semana 3</h3>
+        <p>Arquitectura de Base de Datos</p>
 
         <div id="lista-Semana 3"></div>
 
@@ -101,7 +169,8 @@
       <!-- SEMANA 4 -->
       <div class="semana-card">
         <img src="img/semana4.jpeg">
-        <h3>Semana 4<p>Diseño de la Arquitectura de Base de Datos</Base></p></h3>
+        <h3>Semana 4</h3>
+        <p>Diseño de la Arquitectura</p>
 
         <div id="lista-Semana 4"></div>
 
