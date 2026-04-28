@@ -42,6 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   mostrarArchivos();
 
+  // ocultar controles si no es admin
   if (rol !== "admin") {
     document.querySelectorAll(".acciones-admin").forEach(div => {
       div.style.display = "none";
@@ -50,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-// ===== SUBIR ARCHIVO (CORREGIDO) =====
+// ===== SUBIR ARCHIVO =====
 function subirArchivo(event, semana) {
   const archivo = event.target.files[0];
   if (!archivo) return;
@@ -60,7 +61,7 @@ function subirArchivo(event, semana) {
   reader.onload = function(e) {
     const nuevo = {
       nombre: archivo.name,
-      url: e.target.result   // ✅ base64 correcto
+      url: e.target.result // base64
     };
 
     let datos = JSON.parse(localStorage.getItem("archivos")) || {};
@@ -80,9 +81,10 @@ function subirArchivo(event, semana) {
 }
 
 
-// ===== MOSTRAR =====
+// ===== MOSTRAR ARCHIVOS (MEJORADO) =====
 function mostrarArchivos() {
   const datos = JSON.parse(localStorage.getItem("archivos")) || {};
+  const rol = localStorage.getItem("rol");
 
   Object.keys(datos).forEach(semana => {
     const contenedor = document.getElementById(`lista-${semana}`);
@@ -92,14 +94,30 @@ function mostrarArchivos() {
 
     datos[semana].forEach((archivo, index) => {
       contenedor.innerHTML += `
-        <div>
-      <a href="${archivo.url}" target="_blank" download="${archivo.nombre}">
-  📄 ${archivo.nombre}
-</a>
+        <div class="archivo-item">
+          
+          <span>📄 ${archivo.nombre}</span>
 
-          ${localStorage.getItem("rol") === "admin"
-            ? `<button onclick="eliminar('${semana}', ${index})">❌</button>`
-            : ""}
+          <div>
+
+            <!-- VER -->
+            <a href="${archivo.url}" target="_blank">
+              <button>👁</button>
+            </a>
+
+            <!-- DESCARGAR -->
+            <a href="${archivo.url}" download="${archivo.nombre}">
+              <button>⬇</button>
+            </a>
+
+            <!-- ELIMINAR SOLO ADMIN -->
+            ${rol === "admin" 
+              ? `<button onclick="eliminar('${semana}', ${index})">❌</button>` 
+              : ""
+            }
+
+          </div>
+
         </div>
       `;
     });
@@ -109,9 +127,16 @@ function mostrarArchivos() {
 
 // ===== ELIMINAR =====
 function eliminar(semana, index) {
+  if (!confirm("¿Eliminar este archivo?")) return;
+
   let datos = JSON.parse(localStorage.getItem("archivos")) || {};
+
+  if (!datos[semana]) return;
+
   datos[semana].splice(index, 1);
+
   localStorage.setItem("archivos", JSON.stringify(datos));
+
   mostrarArchivos();
 }
 
@@ -119,6 +144,18 @@ function eliminar(semana, index) {
 // ===== LOGOUT =====
 function logout() {
   localStorage.removeItem("rol");
-  localStorage.removeItem("usuario");
   window.location.href = "login.html";
+}
+function eliminarHTML(btn) {
+  const rol = localStorage.getItem("rol");
+
+  if (rol !== "admin") {
+    alert("No tienes permiso");
+    return;
+  }
+
+  if (!confirm("¿Eliminar este archivo de la vista?")) return;
+
+  const item = btn.closest(".archivo-item");
+  item.remove();
 }
